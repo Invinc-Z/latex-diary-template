@@ -1,0 +1,47 @@
+\documentclass{diary}
+\usepackage{xeCJK} %使用XeLatex构建
+
+\title{日记模板 \\{\small Plain Life and Wonderful Moments}}
+\author{岚峰}
+
+%指定起止日期
+\BeginAt[year]{month}{day}
+\EndAt[year]{month}{day}
+
+%指定字体
+\setCJKmainfont{华文行楷}
+\setmainfont{Times New Roman}
+
+\begin{document}
+\maketitle
+
+\Address[中国][北京]
+\Date{2024}{12}{18}[\sun]%
+\verb|\|Date\verb|{}{}{}[]|前三个参数分别指定年月日， 第四个参数为天气或心情，要用中括号\verb|[]|, 默认值为\verb|\sunny|， 即打印多云图标，可在.cls中\verb|\def\diary@weather{}|修改默认值。如果省略\verb|[]|或\verb|[]|内不填内容，跟随前一天填写的图标。
+
+\verb|\|Date\verb|{}{}{}[]|后面必须要有\%，且命令与日记内容之间不能有空行，否则会引入不必要的空格和空行。
+
+\verb|\Address[][]|两个参数设置地址，默认值为江苏南京，可在.cls中将
+\verb|\newcommandx{\Address}[2][]{}|中的江苏和南京修改为其他省份城市。不带参数命令\verb|\Address|与\verb|\Address[][]|缺省两个参数显示效果相同。且可以缺省一个参数，\verb|\Address[][沭阳]|显示江苏沭阳。
+
+\verb|\setCJKmainfont{}| 设置中文字符的字体。
+
+\verb|\setmainfont{}| 设置文档中除中文字符以外的其他字符的字体。
+
+\Address[][沭阳]
+\Date{2025}{2}{26}[]%
+豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。
+
+\Address[][]
+\Date{2025}{9}{7}[\winkSmile]%
+披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰弥津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨；雁阵惊寒，声断衡阳之浦。
+
+\end{document}
+% 天气指令
+% \sun \sunny \hot \windy \clouds \snow \snowy \snowyRainy 
+% \rainy \rainySunny \rainyThunder \thunderLight \hail \dust
+% 心情指令
+% \confused \sad \simpleSmile \slightlySmile \angry \crying \dizzy \rage 
+% \winkSmile \stuckOutTongue \rollingEyes \confounded \expressionless 
+% \heartEyes \laughing \nerdSmile \openMouth \smirk \worried \astonished
+
