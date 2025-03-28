@@ -1,12 +1,12 @@
 \documentclass{diary}
-\usepackage{xeCJK} %使用XeLatex构建
+\usepackage{xeCJK} %使用XeLaTeX构建
 
 \title{日记模板 \\{\small Plain Life and Wonderful Moments}}
-\author{岚峰}
+\author{Invinc-Z}
 
 %指定起止日期
-\BeginAt[year]{month}{day}
-\EndAt[year]{month}{day}
+\BeginAt[2025]{01}{01}   % 需手动指定年月日
+\EndAt[\getYear]{\getMonth}{\getDay} % 最后一次编译当天的日期 可不修改
 
 %指定字体
 \setCJKmainfont{华文行楷}
@@ -16,7 +16,7 @@
 \maketitle
 
 \Address[中国][北京]
-\Date{2024}{12}{18}[\sun]%
+\Date{2025}{1}{1}[\sun]%
 \verb|\|Date\verb|{}{}{}[]|前三个参数分别指定年月日， 第四个参数为天气或心情，要用中括号\verb|[]|, 默认值为\verb|\sunny|， 即打印多云图标，可在.cls中\verb|\def\diary@weather{}|修改默认值。如果省略\verb|[]|或\verb|[]|内不填内容，跟随前一天填写的图标。
 
 \verb|\|Date\verb|{}{}{}[]|后面必须要有\%，且命令与日记内容之间不能有空行，否则会引入不必要的空格和空行。
@@ -28,21 +28,48 @@
 
 \verb|\setmainfont{}| 设置文档中除中文字符以外的其他字符的字体。
 
+\verb|\Theme{}| 为每一天设定一个主题，格式为居中。
+
+星期几根据日期值自动计算。
+
+
 \Address[][沭阳]
 \Date{2025}{2}{26}[]%
-\Theme[滕王阁序]
+\Theme{滕王阁序} \par
 豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。
 
-\Address[][]
-\Date{2025}{9}{7}[\winkSmile]%
 披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰弥津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨；雁阵惊寒，声断衡阳之浦。
 
+\Address[][]
+\Date{2025}{3}{28}[\winkSmile]%
+\Theme{今日小结} \par
+专注时长：5 h  \par
+\quad \par
+今日完成：\par
+1.  \par
+2.  \par
+3.  \par
+\quad \par
+明日目标：\par
+1. \par
+2. \par
+3. \par
+
+
 \end{document}
-% 天气指令
-% \sun \sunny \hot \windy \clouds \snow \snowy \snowyRainy 
-% \rainy \rainySunny \rainyThunder \thunderLight \hail \dust
-% 心情指令
-% \confused \sad \simpleSmile \slightlySmile \angry \crying \dizzy \rage 
-% \winkSmile \stuckOutTongue \rollingEyes \confounded \expressionless 
-% \heartEyes \laughing \nerdSmile \openMouth \smirk \worried \astonished
+%=================================天气指令==========================================%
+% \sun 晴天太阳                  \sunny 晴朗                       \hot 炎热
+% \windy 大风		  			   \clouds 多云  					   \snow 雪 
+% \snowy 持续降雪  				 \snowyRainy 雨夹雪                \rainy 雨天 
+% \rainySunny 太阳雨             \rainyThunder 雷阵雨 			 \thunderLight 闪电（无雨）  
+% \hail 冰雹		               \dust 沙尘或雾霾
+%
+%=================================心情指令==========================================%
+% \confused 困惑			       \sad 悲伤（难过或沮丧）             \simpleSmile 简单微笑
+% \slightlySmile 淡淡微笑        \angry 生气                        \crying 哭泣（大哭或极度悲伤）
+% \dizzy 晕眩                    \rage 暴怒                         \winkSmile 眨眼笑
+% \stuckOutTongue 吐舌（调皮搞怪） \rollingEyes 翻白眼（无语或不耐烦） \confounded 苦恼
+% \expressionless 无表情         \heartEyes 爱心眼（喜爱或迷恋）      \laughing 开怀大笑
+% \nerdSmile 书呆子笑（呆萌或学霸） \openMouth 张嘴（惊讶或震惊）      \smirk 得意（狡猾或自满）
+% \worried 担忧（忧虑或紧张）      \astonished 震惊（极度惊讶或目瞪口呆）
 

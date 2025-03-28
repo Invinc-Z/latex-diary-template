@@ -7,6 +7,7 @@
 \RequirePackage{tikz}
 \RequirePackage{tikzpagenodes}
 \RequirePackage[calc]{datetime2}
+\usepackage{xparse} % LaTeX3 宏包（较新版本已内置）
 \RequirePackage{xargs}
 \usetikzlibrary{shadows,calc,positioning}
 
@@ -159,6 +160,11 @@
   }
 }
 
+\DTMsavedate{currentdate}{\year-\month-\day}
+\NewExpandableDocumentCommand{\getYear}{}{\DTMfetchyear{currentdate}}
+\NewExpandableDocumentCommand{\getMonth}{}{\DTMfetchmonth{currentdate}}
+\NewExpandableDocumentCommand{\getDay}{}{\DTMfetchday{currentdate}}
+
 %COMMAND WEEKDAY
 \newcommand\diary@EnDoWToCHDow[1]{%
 	\IfStrEqCase{#1}{%
@@ -199,11 +205,28 @@
 \def\@author{}
 
 %\RequirePackage{xargs}
-\newcommandx{\Theme}[2][1=主题,2=4,usedefault]{\quad\quad\quad\quad\quad\quad\quad {\zihao{#2}#1} \par}
 \newcommandx{\Address}[2][1=江苏,2=南京,usedefault]{%
   \def\diary@province{#1}%
   \def\diary@city{#2}%
 }%
+
+% 添加主题居中命令
+\newcommand{\Theme}[1]{%
+	\begin{center}%
+		\vspace{-2em}
+		#1%
+		\vspace{-0.55em}
+	\end{center}%
+}
+
+% 添加主题居中命令
+\newcommand{\CenterText}[1]{%
+	\begin{center}%
+		\vspace{-0.1em}
+		#1%
+		\vspace{-0.5em}
+	\end{center}%
+}
 
 \newcommand\BeginAt[3][]{%
   \def\diary@beginYear{#1}%
@@ -227,7 +250,7 @@
   \stepcounter{diary}%
   \newpage%
   \begin{tikzpicture}[remember picture,overlay,black!80!yellow]
-  	 \DTMsavedate{mydate}{#1-#2-#3}
+  	 \DTMsavedate{mydate}{#1-#2-#3}  % 保存当前日期
     \if@firstcolumn%
       \node[anchor=north east] at ([xshift=-2.5em,yshift=2.5cm]current page text area.north) (day) {\color{date-color}\fontsize{50}{60}\selectfont #3};%
       \draw[line width=2pt,date-color] ($(day.north west)+(-8pt,0)$) -- ($(day.south west)+(-8pt,0)$);%
@@ -250,6 +273,7 @@
   \end{tikzpicture}%
 }%
 % \DTMshortweekdayname{\DTMfetchdow{mydate}}
+% \DTMfetchdow{mydate} 从通过 \DTMsavedate 保存的日期中，提取星期几（0-6，0=周一，6=周日）。
 
 % 标题页字体
 \def\diary@differentTitleCJKFont{}
@@ -284,7 +308,7 @@
     \vspace{7em}%
     \ifx\diary@beginMonth\empty%
       某月某日\par%
-      \hspace*{-1.0em}至\hspace{.2em}%
+      \hspace*{-1.5em}至\hspace{0.5em}%
       那月那日%
     \else%
       \ifx\diary@beginYear\empty%
@@ -292,7 +316,7 @@
         \diary@beginYear 年%
       \fi%
       \diary@beginMonth 月\diary@beginDay 日\par%
-      \hspace*{-1.0em}至\hspace{0em}%
+      \hspace*{-1.5em}至\hspace{0.5em}%
       \ifx\diary@endYear\empty%
       \else%
         \diary@endYear 年%
