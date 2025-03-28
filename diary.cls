@@ -199,6 +199,7 @@
 \def\@author{}
 
 %\RequirePackage{xargs}
+\newcommandx{\Theme}[2][1=主题,2=4,usedefault]{\quad\quad\quad\quad\quad\quad\quad {\zihao{#2}#1} \par}
 \newcommandx{\Address}[2][1=江苏,2=南京,usedefault]{%
   \def\diary@province{#1}%
   \def\diary@city{#2}%
