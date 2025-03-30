@@ -259,7 +259,7 @@
       \node[anchor=south east,left=46pt of day,yshift=9pt] (year) {\color{date-color}\zihao{4}#1 年};%
       \node[left=8.0cm of day.east,anchor=center] (location) {\color{map-color}\map\ \ifx\diary@province\empty\else\diary@province•\fi\diary@city};%
       \node[left=10.5cm of day.east] {\color{weather-color}\huge\diary@weather};%
-      %\node at ($(current page text area.south)+(-0.25\textwidth-16pt,-4pt)$) {\color{date-color}第\thediary 篇};%
+      \node at ($(current page text area.south)+(-0.25\textwidth-16pt,-8pt)$) {\color{date-color}第\thediary 篇};%
     \else%
       \node[anchor=north west] at ([xshift=2.5em,yshift=2.5cm]current page text area.north) (day) {\color{date-color}\fontsize{50}{60}\selectfont #3};%
       \draw[line width=2pt,date-color] ($(day.north east)+(8pt,0)$) -- ($(day.south east)+(8pt,0)$);%
@@ -268,7 +268,7 @@
       \node[anchor=north west,right=46pt of day,yshift=9pt] (year) {\color{date-color}\zihao{4}#1 年};%
       \node[right=8.0cm of day.west,anchor=center] (location) {\color{map-color}\map\ \ifx\diary@province\empty\else\diary@province•\fi\diary@city};%
       \node[right=10.5cm of day.west] {\color{weather-color}\huge\diary@weather};%
-      %\node at ($(current page text area.south)+(0.25\textwidth+16pt,-4pt)$) {\color{date-color}第\thediary 篇};%
+      \node at ($(current page text area.south)+(0.25\textwidth+16pt,-8pt)$) {\color{date-color}第\thediary 篇};%
     \fi%
   \end{tikzpicture}%
 }%
