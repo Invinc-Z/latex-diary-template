@@ -1,5 +1,5 @@
+% !TeX Program = xelatex
 \documentclass{diary}
-\usepackage{xeCJK} %使用XeLaTeX构建
 
 \title{日记模板 \\{\small Plain Life and Wonderful Moments}}
 \author{Invinc-Z}
@@ -8,8 +8,12 @@
 \BeginAt[2025]{01}{01}   % 需手动指定年月日
 \EndAt[\getYear]{\getMonth}{\getDay} % 最后一次编译当天的日期 可不修改
 
-%指定字体
-\setCJKmainfont{华文行楷}
+%指定主字体
+\setCJKmainfont{华文行楷}  
+% 设置无衬线字体（黑体替代）
+% \setCJKsansfont{SimHei}          % 黑体 \textsf{这是黑体（无衬线字体）} 
+% 设置等宽字体（楷体替代）
+% \setCJKmonofont{KaiTi}           % 楷体 \texttt{这是楷体（等宽字体）}
 \setmainfont{Times New Roman}
 
 \begin{document}
@@ -24,7 +28,7 @@
 \verb|\Address[][]|两个参数设置地址，默认值为江苏南京，可在.cls中将
 \verb|\newcommandx{\Address}[2][]{}|中的江苏和南京修改为其他省份城市。不带参数命令\verb|\Address|与\verb|\Address[][]|缺省两个参数显示效果相同。且可以缺省一个参数，\verb|\Address[][沭阳]|显示江苏沭阳。
 
-\verb|\setCJKmainfont{}| 设置中文字符的字体。
+\verb|\setCJKmainfont{}| 设置为本机已有中文字体。
 
 \verb|\setmainfont{}| 设置文档中除中文字符以外的其他字符的字体。
 

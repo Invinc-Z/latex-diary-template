@@ -3,13 +3,49 @@
 
 [仓库地址](https://github.com/Invinc-Z/latex-diary-template)
 
-<div align=center><img src="https://zzz-drawing-bed.oss-cn-nanjing.aliyuncs.com/img/image-20250328225524167.png" alt="latex线圈日记本模板-1" style="zoom: 50%;" /></div>
+<div align=center><img src="https://zzz-drawing-bed.oss-cn-nanjing.aliyuncs.com/img/image-20250520180859884.png" alt="latex线圈日记本模板-1" style="zoom: 50%;" /></div>
 
 <div align=center><img src="https://zzz-drawing-bed.oss-cn-nanjing.aliyuncs.com/img/image-20250328225631115.png" alt="latex线圈日记本模板-2" style="zoom: 50%;" /></div>
 
 ---
 
+## 文件和编译说明
+
+| 文件        | 说明                    |
+| ----------- | ----------------------- |
+| `diary.tex` | 主文件                  |
+| `diary.cls` | 库文件                  |
+| `fonts/`    | 符号字体文件夹          |
+| `Makefile`  | linux编译文件           |
+| `clean.bat` | windows一键清理辅助文件 |
+| `build.bat` | windows一键编译源文件   |
+
+==**需将字体设置为本地已有的字体**==
+
+```latex
+\setCJKmainfont{华文行楷}  
+\setmainfont{Times New Roman}
+```
+
+**编译方法：**`xelatex *.tex` 运行两次
+
+Windows便捷批处理文件：
+
+- `clean.bat` - 清理所有辅助文件；
+-  `build.bat` - 重新编译目录中所有`.tex`并清理辅助文件。
+
+Linux快速编译：
+
+- `make`  - 编译目录中所有`.tex`文件，不清理中间文件；
+
+- `make clean` - 清理所有辅助文件；
+
+- `make build` - 编译所有文件并清理所有辅助文件。
+
+---
+
 ## 天气符号指令翻译
+
 | LaTeX 指令      | 中文含义           | 常见天气描述   |
 | --------------- | ------------------ | -------------- |
 | `\sun`          | 晴天（太阳）       | ☀️ 晴朗无云     |
@@ -63,3 +99,4 @@
 
 - https://github.com/Come-on-ZMZ/LaTeX-Diary
 
+---
